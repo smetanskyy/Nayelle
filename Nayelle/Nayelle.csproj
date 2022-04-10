@@ -128,6 +128,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\css\site.css" />
+    <Content Include="Content\img\favicon.png" />
+    <Content Include="Content\img\hero.jpeg" />
+    <Content Include="Content\img\icon.png" />
+    <Content Include="Content\img\Nayelle-HYALURONIC-Acid-Serum-600-500x614.jpg" />
+    <Content Include="Content\img\Nayelle-VITAMIN-C-Serum-600-500x614.jpg" />
+    <Content Include="Content\img\SilkSerums_1.jpg" />
+    <Content Include="Content\img\SilkSerums_2.jpg" />
+    <Content Include="Content\img\SilkSerums_3.jpg" />
+    <Content Include="Content\img\SilkSerums_4.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\bootstrap.js" />

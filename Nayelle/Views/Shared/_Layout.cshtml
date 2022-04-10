@@ -11,11 +11,17 @@
     <link href="/content/css/site.css" rel="stylesheet" />
 </head>
 <body>
-    <div class="container body-content">
+    <nav>
+        <div class="wrapper nav-panel">
+            <h2>SILK SERUMS</h2>
+        </div>
+    </nav>
+    <div class="body-content">
         @RenderBody()
-        <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - NAYELLE</p>
+            <p style="text-align: center;">
+                Copyright &copy; @DateTime.Now.Year NAYELLE Probiotic Skincare | All Rights Reserved
+            </p>
         </footer>
     </div>
 
