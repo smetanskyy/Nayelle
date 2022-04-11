@@ -1,5 +1,7 @@
 ﻿* {
-    font-family: Montserrat, 'Hind Madurai', Arial, sans-serif
+    font-family: Montserrat, 'Hind Madurai', Arial, sans-serif;
+    color: #333333;
+    box-sizing: border-box;
 }
 
 [onclick] {
@@ -24,7 +26,6 @@ nav {
     z-index: 1000;
     box-shadow: 0px 1px 4px rgb(0 0 0 / 25%);
     display: flex;
-
     align-items: center;
     justify-content: flex-start;
     background: #FFF;
@@ -90,7 +91,7 @@ nav {
     padding-bottom: 20px;
 }
 
-    .main-content-section p {
+    .main-content-section > p {
         font-size: 24px;
         font-weight: 500;
         padding: 0;
@@ -153,3 +154,173 @@ nav {
             .main-content-section-item p.description strong {
                 font-size: 16px;
             }
+
+.link-section {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+    .link-section > p {
+        font-family: Montserrat;
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 120%;
+        padding: 0;
+        margin: 0;
+    }
+
+        .link-section > p > a {
+            font-family: Montserrat;
+            font-size: 20px;
+            color: #2492ff;
+            font-weight: 700;
+            line-height: 120%;
+            padding: 0;
+            margin: 0;
+            text-decoration: none;
+        }
+
+            .link-section > p > a:hover {
+                cursor: pointer;
+                text-decoration: underline;
+            }
+
+.extra-section {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+    .extra-section > p {
+        font-family: Montserrat;
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 120%;
+        padding: 0;
+        margin: 0;
+    }
+
+.contact-section-wrap {
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+    .contact-section-wrap > p {
+        font-family: Montserrat;
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 120%;
+        padding: 0;
+        margin: 0;
+    }
+
+.contact-section {
+    margin-top: 5px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 50px;
+}
+
+    .contact-section > p {
+        font-family: 'Hind Madurai';
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 120%;
+        padding: 0;
+        margin: 0;
+    }
+
+        .contact-section > p > a {
+            font-family: 'Hind Madurai';
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 120%;
+            padding: 0;
+            margin: 0;
+            color: #2492ff;
+        }
+
+.extra-section-icons {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.extra-section-icon {
+    box-sizing: border-box;
+    width: 100%;
+    height: auto;
+    max-width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    padding: 6px;
+    overflow: hidden;
+}
+
+    .extra-section-icon > img {
+        height: auto;
+        width: 100%;
+    }
+
+        .extra-section-icon > img.large {
+            width: 150%;
+        }
+
+        .extra-section-icon > img.made-in-ca {
+            width: 115%;
+        }
+
+
+@media screen and ( max-width: 1024px ) {
+    .extra-section-icons {
+        gap: 0;
+    }
+
+    .main-content-section-list {
+        flex-wrap: wrap;
+    }
+
+    .main-content-section-item {
+        padding-top: 16px;
+        justify-content: center;
+    }
+
+        .main-content-section-item img:hover {
+            z-index: 500;
+            transform: scale(1);
+        }
+
+        .main-content-section-item img {
+            max-width: 250px;
+        }
+
+    .contact-section {
+        gap: 8px;
+    }
+
+    .hide-on-mobile {
+        display: none;
+    }
+
+    .main-hero-content {
+        width: 100%;
+        min-width: 100%;
+        align-items: center;
+        justify-content: flex-end;
+        padding: 12px;
+    }
+
+        .main-hero-content p {
+            padding: 0;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+    .main-content-section > p {
+        font-size: 20px;
+    }
+}
