@@ -72,6 +72,7 @@ namespace Nayelle.Models
         public string HeroTextTop { get; set; }
         public string HeroTextBottom { get; set; }
         [NotMapped]
+        public HttpPostedFileBase PictureHero { get; set; }
         public string HeroImage { get; set; }
         public string ParagraphUnderHero { get; set; }
         public string ParagraphUnderProducts { get; set; }
@@ -86,6 +87,7 @@ namespace Nayelle.Models
         public string PostalCode { get; set; }
         public string Copyright { get; set; }
 
+        public SilkSerumVM() { }
         public SilkSerumVM(SilkSerumPage model)
         {
             string folder = SilkSerumPageRepo.ImagePath;
@@ -127,7 +129,7 @@ namespace Nayelle.Models
             Title = model.Title;
             HeroTextTop = model.HeroTextTop;
             HeroTextBottom = model.HeroTextBottom;
-            HeroImage = $"{SilkSerumPageRepo.ImagePath}/{model.HeroImage}";
+            HeroImage = $"{SilkSerumPageRepo.ImagePath}{model.HeroImage}";
             ParagraphUnderHero = model.ParagraphUnderHero;
             ParagraphUnderProducts = model.ParagraphUnderProducts;
             Link = model.Link;

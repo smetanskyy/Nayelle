@@ -1,7 +1,7 @@
 ﻿@model Nayelle.Models.SilkSerumVM
 @{
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
-    ViewBag.Title = "Administrator";
+    ViewBag.PageTitle = "Administrator";
 }
 
 <main class="wrapper">
@@ -21,7 +21,7 @@
             </div>
             <div class="group-wrapper">
                 <label>Hero Image</label>
-                <input type="file" accept="image/*" name="@Model.HeroImage" value="@Model.HeroImage" />
+                <input type="file" accept="image/*" name="PictureHero" />
             </div>
 
             <div class="group-wrapper product">

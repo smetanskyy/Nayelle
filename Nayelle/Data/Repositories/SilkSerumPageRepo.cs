@@ -168,13 +168,13 @@ namespace Nayelle.Data.Repositories
             return true;
         }
 
-        public bool SavePicture(HttpPostedFileBase uploadedfile, string ID)
+        public string SavePicture(HttpPostedFileBase uploadedfile, string ID)
         {
             var page = new SilkSerumPageRepo();
             var folder = ImagePath;
             if (uploadedfile == null || string.IsNullOrWhiteSpace(uploadedfile.FileName))
             {
-                return false;
+                return null;
             }
 
             var filename = Guid.NewGuid().ToString("N") + Path.GetExtension(uploadedfile.FileName);
@@ -188,25 +188,12 @@ namespace Nayelle.Data.Repositories
                 fileDelete = page.SilkSerumPage.Products.FirstOrDefault(x => x.ID == ID)?.Picture;
             }
 
-            if (ID == "hero")
-            {
-                page.SilkSerumPage.HeroImage = filename;
-            }
-            else if (page.SilkSerumPage.Products.FirstOrDefault(x => x.ID == ID) != null)
-            {
-                page.SilkSerumPage.Products.FirstOrDefault(x => x.ID == ID).Picture = filename;
-            }
-            else
-            {
-                return false;
-            }
-
             SystemFile.Update(folder + filename, uploadedfile.InputStream);
             if (!string.IsNullOrWhiteSpace(fileDelete))
             {
                 SystemFile.Delete(folder + fileDelete);
             }
-            return true;
+            return filename;
         }
     }
 }
