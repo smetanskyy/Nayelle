@@ -1,0 +1,20 @@
+﻿@model Nayelle.Models.SilkSerumPage
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewBag.Title = "Admin";
+}
+
+<main class="wrapper">
+    <form class="SilkSerumPage" action="/admin/update" method="post" novalidate>
+        <div class="page-grid-1">
+            <div class="group-wrapper">
+                <label>Title</label>
+                <input autocomplete="off" type="text" name="Title" value="@Model.Title" placeholder="Title" />
+            </div>
+            <div class="group-wrapper">
+                <label>Title</label>
+                <input autocomplete="off" type="text" name="name" value="@Model.Title" placeholder="Title" />
+            </div>
+        </div>
+    </form>
+</main>

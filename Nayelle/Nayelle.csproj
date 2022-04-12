@@ -120,13 +120,19 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Data\Repositories\SilkSerumPageRepo.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\Helper.cs" />
+    <Compile Include="Models\PageModel.cs" />
+    <Compile Include="Models\ViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\css\admin.css" />
     <Content Include="Content\css\site.css" />
     <Content Include="Content\img\favicon.png" />
     <Content Include="Content\img\Fragrance-Free.svg" />
@@ -172,11 +178,15 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Admin\SilkSerum.cshtml" />
+    <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\js\" />
-    <Folder Include="Models\" />
+    <Folder Include="Files\Content\" />
+    <Folder Include="Files\Images\" />
+    <Folder Include="Files\Logs\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
