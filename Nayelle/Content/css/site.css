@@ -49,7 +49,7 @@ nav {
 
 .main-hero {
     position: relative;
-    background: url(/content/img/hero.jpeg);
+    /*background: url(/content/img/hero.jpeg);*/
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;

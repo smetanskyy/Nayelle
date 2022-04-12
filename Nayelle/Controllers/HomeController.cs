@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Nayelle.Data.Repositories;
+using Nayelle.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,7 +12,9 @@ namespace Nayelle.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            var repo = new SilkSerumPageRepo();
+            var model = new SilkSerumVM(repo.SilkSerumPage);
+            return View(model);
         }
     }
 }

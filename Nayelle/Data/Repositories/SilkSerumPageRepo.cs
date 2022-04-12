@@ -3,6 +3,7 @@ using Nayelle.Models;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Script.Serialization;
@@ -101,7 +102,8 @@ namespace Nayelle.Data.Repositories
                 City = "North Vancouver, BC",
                 PostalCode = "V7P 3P2",
                 Email = "info@silkserums.com",
-                Product = products
+                Copyright = "Copyright © 2022 NAYELLE Probiotic Skincare | All Rights Reserved",
+                Products = products
             };
             SaveJson(SilkSerumPage);
         }
@@ -115,7 +117,7 @@ namespace Nayelle.Data.Repositories
 
         public bool FileDelete(string productID)
         {
-            var product = SilkSerumPage.Product.FirstOrDefault(x => x.ID == productID);
+            var product = SilkSerumPage.Products.FirstOrDefault(x => x.ID == productID);
             if (product == null)
             {
                 return false;
@@ -163,6 +165,47 @@ namespace Nayelle.Data.Repositories
 
             SilkSerumPage.HeroImage = "";
             SaveJson(SilkSerumPage);
+            return true;
+        }
+
+        public bool SavePicture(HttpPostedFileBase uploadedfile, string ID)
+        {
+            var page = new SilkSerumPageRepo();
+            var folder = ImagePath;
+            if (uploadedfile == null || string.IsNullOrWhiteSpace(uploadedfile.FileName))
+            {
+                return false;
+            }
+
+            var filename = Guid.NewGuid().ToString("N") + Path.GetExtension(uploadedfile.FileName);
+            var fileDelete = string.Empty;
+            if (ID == "hero")
+            {
+                fileDelete = page.SilkSerumPage.HeroImage;
+            }
+            else
+            {
+                fileDelete = page.SilkSerumPage.Products.FirstOrDefault(x => x.ID == ID)?.Picture;
+            }
+
+            if (ID == "hero")
+            {
+                page.SilkSerumPage.HeroImage = filename;
+            }
+            else if (page.SilkSerumPage.Products.FirstOrDefault(x => x.ID == ID) != null)
+            {
+                page.SilkSerumPage.Products.FirstOrDefault(x => x.ID == ID).Picture = filename;
+            }
+            else
+            {
+                return false;
+            }
+
+            SystemFile.Update(folder + filename, uploadedfile.InputStream);
+            if (!string.IsNullOrWhiteSpace(fileDelete))
+            {
+                SystemFile.Delete(folder + fileDelete);
+            }
             return true;
         }
     }

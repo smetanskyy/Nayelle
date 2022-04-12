@@ -19,28 +19,14 @@ namespace Nayelle.Controllers
 
         public ActionResult SilkSerum()
         {
-            var page = new SilkSerumPageRepo().SilkSerumPage;
+            var page = new SilkSerumVM(new SilkSerumPageRepo().SilkSerumPage);
             return View(page);
         }
 
         [HttpPost]
         public ActionResult Update()
         {
-            var IsFileUpdateStr = Request.Form["IsFileUpdate"];
-            var IsFileUpdate = IsFileUpdateStr == "1" ? true : false;
-
-            HttpFileCollectionBase files = Request.Files;
-            if (IsFileUpdate && files != null && files.Count > 0)
-            {
-                var result = AttachFile("hero");
-                if (!result.IsSuccess)
-                {
-
-                    return Json(result);
-                }
-            }
-
-            return View();
+            return Redirect("/");
         }
 
         public bool CheckIfFileExists(HttpPostedFileBase uploadedfile, string folderPath)
@@ -77,16 +63,16 @@ namespace Nayelle.Controllers
             }
             else
             {
-                fileDelete = page.SilkSerumPage.Product.FirstOrDefault(x => x.ID == ID)?.Picture;
+                fileDelete = page.SilkSerumPage.Products.FirstOrDefault(x => x.ID == ID)?.Picture;
             }
 
             if (ID == "hero")
             {
                 page.SilkSerumPage.HeroImage = filename;
             }
-            else if (page.SilkSerumPage.Product.FirstOrDefault(x => x.ID == ID) != null)
+            else if (page.SilkSerumPage.Products.FirstOrDefault(x => x.ID == ID) != null)
             {
-                page.SilkSerumPage.Product.FirstOrDefault(x => x.ID == ID).Picture = filename;
+                page.SilkSerumPage.Products.FirstOrDefault(x => x.ID == ID).Picture = filename;
             }
             else
             {

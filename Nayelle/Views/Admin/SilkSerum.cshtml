@@ -1,20 +1,119 @@
-﻿@model Nayelle.Models.SilkSerumPage
+﻿@model Nayelle.Models.SilkSerumVM
 @{
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
-    ViewBag.Title = "Admin";
+    ViewBag.Title = "Administrator";
 }
 
 <main class="wrapper">
-    <form class="SilkSerumPage" action="/admin/update" method="post" novalidate>
+    <form class="SilkSerumPage" action="/admin/update" method="post" novalidate enctype="multipart/form-data">
         <div class="page-grid-1">
             <div class="group-wrapper">
                 <label>Title</label>
                 <input autocomplete="off" type="text" name="Title" value="@Model.Title" placeholder="Title" />
             </div>
             <div class="group-wrapper">
-                <label>Title</label>
-                <input autocomplete="off" type="text" name="name" value="@Model.Title" placeholder="Title" />
+                <label>Hero Text Top</label>
+                <textarea name="HeroTextTop">@Model.HeroTextTop</textarea>
             </div>
+            <div class="group-wrapper">
+                <label>Hero Text Bottom</label>
+                <textarea name="HeroTextBottom">@Model.HeroTextBottom</textarea>
+            </div>
+            <div class="group-wrapper">
+                <label>Hero Image</label>
+                <input type="file" accept="image/*" name="@Model.HeroImage" value="@Model.HeroImage" />
+            </div>
+
+            <div class="group-wrapper product">
+                <label>Product 1</label>
+                <input type="hidden" name="ID_1" value="@Model.ID_1" />
+                <input type="text" name="Name_1" value="@Model.Name_1" placeholder="Name" />
+                <input type="text" name="Price_1" value="@Model.Price_1" placeholder="Price" />
+                <input type="text" name="Ingredient_1" value="@Model.Ingredient_1" placeholder="Ingredient" />
+                <input type="text" name="Property_1" value="@Model.Property_1" placeholder="Property" />
+                <textarea name="Description_1" placeholder="Description">@Model.Description_1</textarea>
+                <input type="file" accept="image/*" name="Picture_1" />
+            </div>
+            <div class="group-wrapper product">
+                <label>Product 2</label>
+                <input type="hidden" name="ID_2" value="@Model.ID_2" />
+                <input type="text" name="Name_2" value="@Model.Name_2" placeholder="Name" />
+                <input type="text" name="Price_2" value="@Model.Price_2" placeholder="Price" />
+                <input type="text" name="Ingredient_2" value="@Model.Ingredient_2" placeholder="Ingredient" />
+                <input type="text" name="Property_2" value="@Model.Property_2" placeholder="Property" />
+                <textarea name="Description_2" placeholder="Description">@Model.Description_2</textarea>
+                <input type="file" accept="image/*" name="Picture_2" />
+            </div>
+            <div class="group-wrapper product">
+                <label>Product 2</label>
+                <input type="hidden" name="ID_3" value="@Model.ID_3" />
+                <input type="text" name="Name_3" value="@Model.Name_3" placeholder="Name" />
+                <input type="text" name="Price_3" value="@Model.Price_3" placeholder="Price" />
+                <input type="text" name="Ingredient_3" value="@Model.Ingredient_3" placeholder="Ingredient" />
+                <input type="text" name="Property_3" value="@Model.Property_3" placeholder="Property" />
+                <textarea name="Description_3" placeholder="Description">@Model.Description_3</textarea>
+                <input type="file" accept="image/*" name="Picture_3" />
+            </div>
+            <div class="group-wrapper product">
+                <label>Product 4</label>
+                <input type="hidden" name="ID_4" value="@Model.ID_4" />
+                <input type="text" name="Name_4" value="@Model.Name_4" placeholder="Name" />
+                <input type="text" name="Price_4" value="@Model.Price_4" placeholder="Price" />
+                <input type="text" name="Ingredient_4" value="@Model.Ingredient_4" placeholder="Ingredient" />
+                <input type="text" name="Property_4" value="@Model.Property_4" placeholder="Property" />
+                <textarea name="Description_4" placeholder="Description">@Model.Description_4</textarea>
+                <input type="file" accept="image/*" name="Picture_4" />
+            </div>
+            <div class="group-wrapper">
+                <label>Paragraph Under Hero</label>
+                <textarea name="ParagraphUnderHero">@Model.ParagraphUnderHero</textarea>
+            </div>
+            <div class="group-wrapper">
+                <label>Paragraph Under Products</label>
+                <textarea name="ParagraphUnderProducts">@Model.ParagraphUnderProducts</textarea>
+            </div>
+            <div class="group-wrapper">
+                <label>Link</label>
+                <input autocomplete="off" type="text" name="Link" value="@Model.Link" placeholder="Link" />
+            </div>
+            <div class="group-wrapper">
+                <label>Link Name</label>
+                <input autocomplete="off" type="text" name="LinkName" value="@Model.LinkName" placeholder="Link Name" />
+            </div>
+            <div class="group-wrapper">
+                <label>Advantage</label>
+                <textarea name="Advantage">@Model.Advantage</textarea>
+            </div>
+            <div class="group-wrapper">
+                <label>Email</label>
+                <input autocomplete="off" type="text" name="Email" value="@Model.Email" placeholder="Email" />
+            </div>
+            <div class="group-wrapper">
+                <label>Contact Us</label>
+                <input autocomplete="off" type="text" name="ContactUs" value="@Model.ContactUs" placeholder="Contact Us" />
+            </div>
+            <div class="group-wrapper">
+                <label>Manufacture</label>
+                <input autocomplete="off" type="text" name="Manufacture" value="@Model.Manufacture" placeholder="Manufacture" />
+            </div>
+            <div class="group-wrapper">
+                <label>Street</label>
+                <input autocomplete="off" type="text" name="Street" value="@Model.Street" placeholder="Street" />
+            </div>
+            <div class="group-wrapper">
+                <label>City</label>
+                <input autocomplete="off" type="text" name="City" value="@Model.City" placeholder="City" />
+            </div>
+            <div class="group-wrapper">
+                <label>Postal Code</label>
+                <input autocomplete="off" type="text" name="PostalCode" value="@Model.PostalCode" placeholder="PostalCode" />
+            </div>
+            <div class="group-wrapper">
+                <label>Copyright</label>
+                <input autocomplete="off" type="text" name="Copyright" value="@Model.Copyright" placeholder="Copyright" />
+            </div>
+
+            <button class="sibmit-btn" type="submit">Submit</button>
         </div>
     </form>
 </main>

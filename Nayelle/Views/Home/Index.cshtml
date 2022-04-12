@@ -1,87 +1,73 @@
-﻿@{
+﻿@model Nayelle.Models.SilkSerumVM
+
+@{
     ViewBag.Title = "NAYELLE Skincare - For Sensitive Skin - Organic Probiotic Ingredients";
 }
 
 <main>
-    <div class="main-hero">
+    <div class="main-hero" style="background-image: url(@Model.HeroImage);">
         <div class="main-hero-content hide-on-mobile"></div>
         <div class="main-hero-content">
-            <p>
-                100%  Natural Serums for healthy, youthful, glowing skin.
-            </p>
-            <p>
-                * Repair * Protect * Hydrate * Brighten *
-            </p>
+            <p>@Model.HeroTextTop</p>
+            <p>@Model.HeroTextBottom</p>
         </div>
     </div>
     <div class="wrapper main-content-section">
-        <p>Why SILK SERUMS? All your skin needs in 4 little bottles. Powerful ingredients, fast acting, results driven.</p>
+        <p>@Model.ParagraphUnderHero</p>
         <div class="main-content-section-list">
             <div class="main-content-section-item">
-                <img src="/Content/img/SilkSerums_1.jpg" />
-                <p><strong>SILK SERUMS BAKUCHOLI</strong></p>
-                <p><strong>Price:</strong> $35</p>
+                @*<img src="/Content/img/SilkSerums_1.jpg" />*@
+                <img src="@Model.FileName_1" />
+                <p><strong>@Model.Name_1</strong></p>
+                <p><strong>Price:</strong> @Model.Price_1</p>
                 <p class="description">
-                    <strong>BAKUCHOLI OIL</strong><br />
-                    <strong>Retinol Alternative</strong><br />
-                    A gentle, plant based retinol alternative
-                    Without irritation and safe to use daily.
-                    Seals in hydration and smooths the
-                    look of fine lines and wrinkles.
+                    <strong>@Model.Ingredient_1</strong><br />
+                    <strong>@Model.Property_1</strong><br />
+                    @Model.Description_1
                 </p>
             </div>
             <div class="main-content-section-item">
-                <img src="/Content/img/SilkSerums_2.jpg" />
-                <p><strong>SILK SERUMS HYALURONIC</strong></p>
-                <p><strong>Price:</strong> $29</p>
+                @*<img src="/Content/img/SilkSerums_2.jpg" />*@
+                <img src="@Model.FileName_2" />
+                <p><strong>@Model.Name_2</strong></p>
+                <p><strong>Price:</strong> @Model.Price_2</p>
                 <p class="description">
-                    <strong>HYALURONIC ACID 1%</strong><br />
-                    <strong>Hydrating</strong><br />
-                    A powerful hydrating must-have
-                    with 1% hyaluornic acid to hydrate
-                    the skin, leaving it smoother and plumper.
-                    Uses 3 molecular sizes of HA to deeply
-                    penetrate and hydrate the skin.
+                    <strong>@Model.Ingredient_2</strong><br />
+                    <strong>@Model.Property_2</strong><br />
+                    @Model.Description_2
                 </p>
             </div>
             <div class="main-content-section-item">
-                <img src="/Content/img/SilkSerums_3.jpg" />
-                <p><strong>SILK SERUMS VITAMIN C</strong></p>
-                <p><strong>Price:</strong> $29</p>
+                @*<img src="/Content/img/SilkSerums_3.jpg" />*@
+                <img src="@Model.FileName_3" />
+                <p><strong>@Model.Name_3</strong></p>
+                <p><strong>Price:</strong> @Model.Price_3</p>
                 <p class="description">
-                    <strong>VITAMIN C 5%</strong><br />
-                    <strong>Brightening</strong><br />
-                    A highly stable Vitamin C that delivers
-                    a potent dose of actives to help brighten
-                    dull, stressed-out skin while reducing
-                    hyperpigmentation and marks.
+                    <strong>@Model.Ingredient_3</strong><br />
+                    <strong>@Model.Property_3</strong><br />
+                    @Model.Description_3
                 </p>
             </div>
             <div class="main-content-section-item">
-                <img src="/Content/img/SilkSerums_4.jpg" />
-                <p><strong>SILK SERUMS NIACINAMIDE</strong></p>
-                <p><strong>Price:</strong> $35</p>
+                @*<img src="/Content/img/SilkSerums_4.jpg" />*@
+                <img src="@Model.FileName_4" />
+                <p><strong>@Model.Name_4</strong></p>
+                <p><strong>Price:</strong> @Model.Price_4</p>
                 <p class="description">
-                    <strong>NIACINAMIDE 4%</strong><br />
-                    <strong>Anti-Aging & Repair</strong><br />
-                    A supercharged anti-aging serum
-                    powered by  5% niacinamide a
-                    Natural vitaminB3.  Increases collagen
-                    Production and combats fine lines,
-                    wrinkles.
+                    <strong>@Model.Ingredient_4</strong><br />
+                    <strong>@Model.Property_4</strong><br />
+                    @Model.Description_4
                 </p>
             </div>
         </div>
     </div>
 
     <div class="wrapper link-section">
-        <p>WHERE TO BUY? <a href="https://nayelle.com/">NAYELLE Skincare</a></p>
+        <p>@Model.ParagraphUnderProducts<a href="@Model.Link"> @Model.LinkName</a></p>
     </div>
 
     <div class="wrapper extra-section">
-        <p>
-            SILK SERUMS is a proudly Canadian made, family run business.
-        </p>
+        <p>@Model.Advantage</p>
     </div>
     <div class="extra-section-icons">
         <div class="extra-section-icon"><img class="large" src="/content/img/hypoallergenic.svg" /></div>
@@ -91,18 +77,16 @@
         <div class="extra-section-icon"><img class="made-in-ca" src="/content/img/made_in_canada.svg" /></div>
     </div>
     <div class="wrapper contact-section-wrap">
-        <p>
-            To Contact Us:
-        </p>
+        <p>@Model.ContactUs</p>
         <div class="contact-section">
             <p>
-                Manufactured for Silk Serums.<br />
-                #300-West 14th Street<br />
-                North Vancouver, BC<br />
-                V7P 3P2
+                @Model.Manufacture<br />
+                @Model.Street<br />
+                @Model.Street<br />
+                @Model.PostalCode
             </p>
             <p>
-                <a href="mailto:info@silkserums.com">info@silkserums.com</a>
+                <a href="mailto:info@silkserums.com">@Model.Email</a>
             </p>
         </div>
     </div>
