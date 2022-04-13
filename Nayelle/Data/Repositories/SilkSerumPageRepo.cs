@@ -14,7 +14,7 @@ namespace Nayelle.Data.Repositories
     {
         public SilkSerumPage SilkSerumPage { get; set; }
         public static readonly string ImagePath = "/files/images/SilkSerum/";
-        public static readonly string FilePath = "/files/content/SilkSerumPage.json";
+        public static readonly string FilePath = "/app_data/content/SilkSerumPage.json";
         public SilkSerumPageRepo()
         {
             Refresh();

@@ -106,7 +106,25 @@ nav {
     cursor: pointer;
 }
 
-.sibmit-btn:hover {
-    opacity: 0.8;
-    transition: all linear 0.2s;
+    .sibmit-btn:hover {
+        opacity: 0.8;
+        transition: all linear 0.2s;
+    }
+
+.remember-me {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
 }
+
+    .remember-me label {
+        padding: 0;
+        margin: 0;
+    }
+
+    .remember-me input {
+        width: 14px;
+        height: 14px;
+    }

@@ -48,7 +48,6 @@ nav {
 }
 
 .main-hero {
-    position: relative;
     /*background: url(/content/img/hero.jpeg);*/
     background-repeat: no-repeat;
     background-size: cover;
@@ -57,11 +56,15 @@ nav {
     height: 500px;
     max-height: 70vh;
     border-radius: 4px;
+}
+
+.main-hero-shadow {
+    width: 100%;
+    height: 100%;
     display: flex;
-    flex-direction: row;
     justify-content: flex-end;
     align-items: center;
-    z-index: 0;
+    background: rgba(112, 184, 255, 0.3);
 }
 
 .main-hero-content {
@@ -73,7 +76,6 @@ nav {
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    background: rgba(112, 184, 255, 0.3);
 }
 
     .main-hero-content p {
@@ -304,6 +306,10 @@ nav {
 
     .hide-on-mobile {
         display: none;
+    }
+
+    .main-hero-shadow {
+        justify-content: center;
     }
 
     .main-hero-content {

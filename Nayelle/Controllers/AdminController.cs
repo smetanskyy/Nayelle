@@ -1,6 +1,7 @@
 ﻿using Nayelle.Data.Repositories;
 using Nayelle.Helpers;
 using Nayelle.Models;
+using Nayelle.Services;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -12,15 +13,67 @@ namespace Nayelle.Controllers
 {
     public class AdminController : Controller
     {
+        [HttpGet]
         public ActionResult Index()
         {
-            return Redirect("/admin/SilkSerum");
+            if (Request.Cookies["_loginTkn"] != null)
+            {
+                var accountService = new AccountService();
+                var tkn = Request.Cookies["_loginTkn"].Value;
+                var isValid = !string.IsNullOrWhiteSpace(tkn) && GuidToken.IsValidTokenBasedOnTime(tkn) && accountService.IsGuidValid(GuidToken.GetGuidFromToken(tkn));
+                if (isValid)
+                {
+                    return RedirectToAction("SilkSerum");
+                }
+            }
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Index(LoginVM login)
+        {
+            var isRememberMe = Request.Form["RememberMe"] ?? "";
+            var accountService = new AccountService();
+            var guid = accountService.GetGuidByCredentials(login.UserName, login.Password);
+            if (string.IsNullOrWhiteSpace(guid))
+            {
+                return View();
+            }
+            var tkn = GuidToken.CreateTokenBasedOnGuid(guid, 24 * 3);
+            var tknCookie = new HttpCookie("_loginTkn", tkn);
+            tknCookie.Expires = DateTime.Now.Date.AddHours(3).AddDays(3);
+            var rememberMe = new HttpCookie("_rememberMe", isRememberMe);
+            rememberMe.Expires = DateTime.Now.Date.AddHours(3).AddDays(3);
+            Response.Cookies.Set(tknCookie);
+            Response.Cookies.Set(rememberMe);
+            return RedirectToAction("SilkSerum");
         }
 
         public ActionResult SilkSerum()
         {
-            var page = new SilkSerumVM(new SilkSerumPageRepo().SilkSerumPage);
-            return View(page);
+            if (Request.Cookies["_loginTkn"] != null)
+            {
+                var accountService = new AccountService();
+                var tkn = Request.Cookies["_loginTkn"].Value;
+                var isValid = !string.IsNullOrWhiteSpace(tkn) && GuidToken.IsValidTokenBasedOnTime(tkn) && accountService.IsGuidValid(GuidToken.GetGuidFromToken(tkn));
+
+                if (!isValid || Request.Cookies["_rememberMe"] == null || Request.Cookies["_rememberMe"].Value != "on")
+                {
+                    var _loginTkn = Request.Cookies["_loginTkn"];
+                    var _rememberMe = Request.Cookies["_rememberMe"];
+                    _loginTkn.Expires = DateTime.Now.AddDays(-1);
+                    _rememberMe.Expires = DateTime.Now.AddDays(-1);
+                    Response.Cookies.Set(_loginTkn);
+                    Response.Cookies.Set(_rememberMe);
+                }
+                if (!isValid)
+                {
+                    return RedirectToAction("Index");
+                }
+                var page = new SilkSerumVM(new SilkSerumPageRepo().SilkSerumPage);
+                return View(page);
+            }
+            return RedirectToAction("Index");
         }
 
         [HttpPost]

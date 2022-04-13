@@ -23,7 +23,10 @@
                 <label>Hero Image</label>
                 <input type="file" accept="image/*" name="PictureHero" />
             </div>
-
+            <div class="group-wrapper">
+                <label>Paragraph Under Hero</label>
+                <textarea name="ParagraphUnderHero">@Model.ParagraphUnderHero</textarea>
+            </div>
             <div class="group-wrapper product">
                 <label>Product 1</label>
                 <input type="hidden" name="ID_1" value="@Model.ID_1" />
@@ -65,10 +68,6 @@
                 <input type="file" accept="image/*" name="Picture_4" />
             </div>
             <div class="group-wrapper">
-                <label>Paragraph Under Hero</label>
-                <textarea name="ParagraphUnderHero">@Model.ParagraphUnderHero</textarea>
-            </div>
-            <div class="group-wrapper">
                 <label>Paragraph Under Products</label>
                 <textarea name="ParagraphUnderProducts">@Model.ParagraphUnderProducts</textarea>
             </div>
@@ -85,12 +84,12 @@
                 <textarea name="Advantage">@Model.Advantage</textarea>
             </div>
             <div class="group-wrapper">
-                <label>Email</label>
-                <input autocomplete="off" type="text" name="Email" value="@Model.Email" placeholder="Email" />
-            </div>
-            <div class="group-wrapper">
                 <label>Contact Us</label>
                 <input autocomplete="off" type="text" name="ContactUs" value="@Model.ContactUs" placeholder="Contact Us" />
+            </div>
+            <div class="group-wrapper">
+                <label>Email</label>
+                <input autocomplete="off" type="text" name="Email" value="@Model.Email" placeholder="Email" />
             </div>
             <div class="group-wrapper">
                 <label>Manufacture</label>

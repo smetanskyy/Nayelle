@@ -1,0 +1,24 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewBag.PageTitle = "Administrator";
+}
+
+<main class="wrapper">
+    <form class="Admin" action="/admin/" method="post" novalidate>
+        <div class="page-grid-1">
+            <div class="group-wrapper">
+                <label>Login</label>
+                <input autocomplete="off" type="text" name="UserName" value="" placeholder="Login" />
+            </div>
+            <div class="group-wrapper">
+                <label>Password</label>
+                <input autocomplete="off" type="Password" name="Password" value="" placeholder="Password" />
+            </div>
+            <div class="group-wrapper remember-me">
+                <label>Remember Me</label>
+                <input autocomplete="off" type="checkbox" name="RememberMe" />
+            </div>
+            <button class="sibmit-btn" type="submit">Sign In</button>
+        </div>
+    </form>
+</main>

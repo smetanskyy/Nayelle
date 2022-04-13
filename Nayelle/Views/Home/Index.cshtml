@@ -7,10 +7,11 @@
 
 <main>
     <div class="main-hero" style="background-image: url(@Model.HeroImage);">
-        <div class="main-hero-content hide-on-mobile"></div>
-        <div class="main-hero-content">
-            <p>@Model.HeroTextTop</p>
-            <p>@Model.HeroTextBottom</p>
+        <div class="main-hero-shadow">
+            <div class="main-hero-content">
+                <p>@Model.HeroTextTop</p>
+                <p>@Model.HeroTextBottom</p>
+            </div>
         </div>
     </div>
     <div class="wrapper main-content-section">
@@ -83,7 +84,7 @@
             <p>
                 @Model.Manufacture<br />
                 @Model.Street<br />
-                @Model.Street<br />
+                @Model.City<br />
                 @Model.PostalCode
             </p>
             <p>
