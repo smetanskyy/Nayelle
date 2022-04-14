@@ -89,8 +89,8 @@ namespace Nayelle.Data.Repositories
             {
                 Title = "SILK SERUMS",
                 HeroImage = "hero.jpeg",
-                HeroTextTop = "100% Natural Serums for healthy, youthful, glowing skin.",
-                HeroTextBottom = "* Repair * Protect * Hydrate * Brighten *",
+                HeroTextTop = "* Repair * Protect * Hydrate * Brighten *",
+                HeroTextBottom = "100% Natural Serums for healthy, youthful, glowing skin.",
                 ParagraphUnderHero = "Why SILK SERUMS? All your skin needs in 4 little bottles. Powerful ingredients, fast acting, results driven.",
                 ParagraphUnderProducts = "WHERE TO BUY?",
                 LinkName = "NAYELLE Skincare",
