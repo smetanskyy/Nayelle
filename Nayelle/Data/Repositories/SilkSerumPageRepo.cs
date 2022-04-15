@@ -189,13 +189,9 @@ namespace Nayelle.Data.Repositories
                 fileDelete = page.SilkSerumPage.Products.FirstOrDefault(x => x.ID == ID)?.Picture;
             }
 
-            try
-            {
-                // save original file
-                // var path = HttpContext.Current.Server.MapPath(Path.Combine(folder, uploadedfile.FileName));
-                // uploadedfile.SaveAs(path);
-            }
-            catch (Exception) { }
+            // save original file
+            // var path = HttpContext.Current.Server.MapPath(Path.Combine(folder, uploadedfile.FileName));
+            // uploadedfile.SaveAs(path);
 
             SystemFile.Update(folder + filename, uploadedfile.InputStream);
             if (!string.IsNullOrWhiteSpace(fileDelete))
