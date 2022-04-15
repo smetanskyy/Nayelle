@@ -113,7 +113,8 @@ namespace Nayelle.Controllers
             silkserum.Title = model.Title;
             silkserum.HeroTextTop = model.HeroTextTop;
             silkserum.HeroTextBottom = model.HeroTextBottom;
-            silkserum.ParagraphUnderHero = model.ParagraphUnderHero;
+            silkserum.ParagraphUnderHeroFirst = model.ParagraphUnderHeroFirst;
+            silkserum.ParagraphUnderHeroSecond = model.ParagraphUnderHeroSecond;
             silkserum.ParagraphUnderProducts = model.ParagraphUnderProducts;
             silkserum.Link = model.Link;
             silkserum.LinkName = model.LinkName;

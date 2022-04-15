@@ -74,7 +74,8 @@ namespace Nayelle.Models
         [NotMapped]
         public HttpPostedFileBase PictureHero { get; set; }
         public string HeroImage { get; set; }
-        public string ParagraphUnderHero { get; set; }
+        public string ParagraphUnderHeroFirst { get; set; }
+        public string ParagraphUnderHeroSecond { get; set; }
         public string ParagraphUnderProducts { get; set; }
         public string Link { get; set; }
         public string LinkName { get; set; }
@@ -130,7 +131,8 @@ namespace Nayelle.Models
             HeroTextTop = model.HeroTextTop;
             HeroTextBottom = model.HeroTextBottom;
             HeroImage = $"{SilkSerumPageRepo.ImagePath}{model.HeroImage}";
-            ParagraphUnderHero = model.ParagraphUnderHero;
+            ParagraphUnderHeroFirst = model.ParagraphUnderHeroFirst;
+            ParagraphUnderHeroSecond = model.ParagraphUnderHeroSecond;
             ParagraphUnderProducts = model.ParagraphUnderProducts;
             Link = model.Link;
             LinkName = model.LinkName;

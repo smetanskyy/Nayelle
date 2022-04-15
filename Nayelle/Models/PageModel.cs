@@ -12,7 +12,8 @@ namespace Nayelle.Models
         public string HeroTextTop { get; set; } = string.Empty;
         public string HeroTextBottom { get; set; } = string.Empty;
         public string HeroImage { get; set; } = string.Empty;
-        public string ParagraphUnderHero { get; set; } = string.Empty;
+        public string ParagraphUnderHeroFirst { get; set; } = string.Empty;
+        public string ParagraphUnderHeroSecond { get; set; } = string.Empty;
         public string ParagraphUnderProducts { get; set; } = string.Empty;
         public string Link { get; set; } = string.Empty;
         public string LinkName { get; set; } = string.Empty;

@@ -49,7 +49,7 @@ namespace Nayelle.Data.Repositories
                 Ingredient = "BAKUCHOLI OIL",
                 Property = "Retinol Alternative",
                 Description = "A gentle, plant based retinol alternative Without irritation and safe to use daily. Seals in hydration and smooths the look of fine lines and wrinkles.",
-                Picture = "SilkSerums_1.jpg"
+                Picture = "bakuchiol-oil.jpg"
             });
 
             products.Add(new SilkSerum()
@@ -60,7 +60,7 @@ namespace Nayelle.Data.Repositories
                 Ingredient = "HYALURONIC ACID 1%",
                 Property = "Hydrating",
                 Description = "A powerful hydrating must-have with 1% hyaluornic acid to hydrate the skin, leaving it smoother and plumper. Uses 3 molecular sizes of HA to deeply penetrate and hydrate the skin.",
-                Picture = "SilkSerums_2.jpg"
+                Picture = "hyaluronic-acid-serum.jpg"
             });
 
             products.Add(new SilkSerum()
@@ -71,7 +71,7 @@ namespace Nayelle.Data.Repositories
                 Ingredient = "VITAMIN C 5%",
                 Property = "Brightening",
                 Description = "A highly stable Vitamin C that delivers a potent dose of actives to help brighten dull, stressed-out skin while reducing hyperpigmentation and marks.",
-                Picture = "SilkSerums_3.jpg"
+                Picture = "vitamin-c-serum.jpg"
             });
 
             products.Add(new SilkSerum()
@@ -82,7 +82,7 @@ namespace Nayelle.Data.Repositories
                 Ingredient = "NIACINAMIDE 4%",
                 Property = "Anti-Aging & Repair",
                 Description = "A supercharged anti-aging serum powered by 5% niacinamide a Natural vitaminB3. Increases collagen Production and combats fine lines, wrinkles.",
-                Picture = "SilkSerums_4.jpg"
+                Picture = "niaminacide-serum.jpg"
             });
 
             SilkSerumPage = new SilkSerumPage()
@@ -91,7 +91,8 @@ namespace Nayelle.Data.Repositories
                 HeroImage = "hero.jpeg",
                 HeroTextTop = "* Repair * Protect * Hydrate * Brighten *",
                 HeroTextBottom = "100% Natural Serums for healthy, youthful, glowing skin.",
-                ParagraphUnderHero = "Why SILK SERUMS? All your skin needs in 4 little bottles. Powerful ingredients, fast acting, results driven.",
+                ParagraphUnderHeroFirst = "Why SILK SERUMS? All your skin needs in 4 little bottles.",
+                ParagraphUnderHeroSecond = "Powerful ingredients, fast acting, results driven.",
                 ParagraphUnderProducts = "WHERE TO BUY?",
                 LinkName = "NAYELLE Skincare",
                 Link = "https://nayelle.com/",
@@ -188,8 +189,15 @@ namespace Nayelle.Data.Repositories
                 fileDelete = page.SilkSerumPage.Products.FirstOrDefault(x => x.ID == ID)?.Picture;
             }
 
-            var path = HttpContext.Current.Server.MapPath(Path.Combine(folder, filename));
-            uploadedfile.SaveAs(path);
+            try
+            {
+                // save original file
+                var path = HttpContext.Current.Server.MapPath(Path.Combine(folder, uploadedfile.FileName));
+                uploadedfile.SaveAs(path);
+            }
+            catch (Exception) { }
+
+            SystemFile.Update(folder + filename, uploadedfile.InputStream);
             if (!string.IsNullOrWhiteSpace(fileDelete))
             {
                 SystemFile.Delete(folder + fileDelete);
