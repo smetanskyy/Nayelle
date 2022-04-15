@@ -77,6 +77,7 @@ namespace Nayelle.Controllers
         }
 
         [HttpPost]
+        [ValidateInput(false)]
         public ActionResult Update(SilkSerumVM model)
         {
             var repo = new SilkSerumPageRepo();
