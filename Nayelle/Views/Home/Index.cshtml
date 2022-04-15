@@ -10,13 +10,13 @@
     <div class="main-hero" style="background-image: url(@Model.HeroImage);">
         <div class="main-hero-shadow">
             <div class="main-hero-content">
-                <p>@Model.HeroTextBottom</p>
+                <p>@Html.Raw(Model.HeroTextBottom)</p>
             </div>
         </div>
     </div>
     <div class="wrapper main-content-section">
-        <p>@Model.ParagraphUnderHeroFirst</p>
-        <p>@Model.ParagraphUnderHeroSecond</p>
+        <p>@Html.Raw(Model.ParagraphUnderHeroFirst)</p>
+        <p>@Html.Raw(Model.ParagraphUnderHeroSecond)</p>
         <div class="main-content-section-list">
             <div class="main-content-section-item">
                 @*<img src="/Content/img/SilkSerums_1.jpg" />*@
@@ -26,7 +26,7 @@
                 <p class="description">
                     <strong>@Model.Ingredient_1</strong><br />
                     <strong>@Model.Property_1</strong><br />
-                    @Model.Description_1
+                    @Html.Raw(Model.Description_1)
                 </p>
             </div>
             <div class="main-content-section-item">
@@ -37,7 +37,7 @@
                 <p class="description">
                     <strong>@Model.Ingredient_2</strong><br />
                     <strong>@Model.Property_2</strong><br />
-                    @Model.Description_2
+                    @Html.Raw(Model.Description_2)
                 </p>
             </div>
             <div class="main-content-section-item">
@@ -48,7 +48,7 @@
                 <p class="description">
                     <strong>@Model.Ingredient_3</strong><br />
                     <strong>@Model.Property_3</strong><br />
-                    @Model.Description_3
+                    @Html.Raw(Model.Description_3)
                 </p>
             </div>
             <div class="main-content-section-item">
@@ -59,7 +59,7 @@
                 <p class="description">
                     <strong>@Model.Ingredient_4</strong><br />
                     <strong>@Model.Property_4</strong><br />
-                    @Model.Description_4
+                    @Html.Raw(Model.Description_4)
                 </p>
             </div>
         </div>
@@ -70,7 +70,7 @@
     </div>
 
     <div class="wrapper extra-section">
-        <p>@Model.Advantage</p>
+        <p>@Html.Raw(Model.Advantage)</p>
     </div>
     <div class="extra-section-icons">
         <div class="extra-section-icon"><img class="large" src="/content/img/hypoallergenic.svg" /></div>
