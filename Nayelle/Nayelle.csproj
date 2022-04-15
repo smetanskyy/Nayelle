@@ -162,23 +162,20 @@
   <ItemGroup>
     <Content Include="Content\css\admin.css" />
     <Content Include="Content\css\site.css" />
+    <Content Include="Content\img\bakuchiol-oil.jpg" />
     <Content Include="Content\img\favicon.png" />
     <Content Include="Content\img\Fragrance-Free.svg" />
     <Content Include="Content\img\hero.jpeg" />
+    <Content Include="Content\img\hyaluronic-acid-serum.jpg" />
     <Content Include="Content\img\hypoallergenic.svg" />
     <Content Include="Content\img\icon.png" />
     <Content Include="Content\img\made_in_ca.svg" />
     <Content Include="Content\img\made_in_canada.svg" />
-    <Content Include="Content\img\Nayelle-HYALURONIC-Acid-Serum-600-500x614.jpg" />
-    <Content Include="Content\img\Nayelle-Revitalizing-Serum-600-500x614.jpg" />
-    <Content Include="Content\img\Nayelle-VITAMIN-C-Serum-600-500x614.jpg" />
+    <Content Include="Content\img\niaminacide-serum.jpg" />
     <Content Include="Content\img\Non-GMO.svg" />
     <Content Include="Content\img\paraben_free.svg" />
     <Content Include="Content\img\paraben-free.svg" />
-    <Content Include="Content\img\SilkSerums_1.jpg" />
-    <Content Include="Content\img\SilkSerums_2.jpg" />
-    <Content Include="Content\img\SilkSerums_3.jpg" />
-    <Content Include="Content\img\SilkSerums_4.jpg" />
+    <Content Include="Content\img\vitamin-c-serum.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\bootstrap.js" />
