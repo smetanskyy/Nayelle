@@ -192,8 +192,8 @@ namespace Nayelle.Data.Repositories
             try
             {
                 // save original file
-                var path = HttpContext.Current.Server.MapPath(Path.Combine(folder, uploadedfile.FileName));
-                uploadedfile.SaveAs(path);
+                // var path = HttpContext.Current.Server.MapPath(Path.Combine(folder, uploadedfile.FileName));
+                // uploadedfile.SaveAs(path);
             }
             catch (Exception) { }
 
