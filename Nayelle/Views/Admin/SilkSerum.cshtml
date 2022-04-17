@@ -21,7 +21,7 @@
             </div>
             <div class="group-wrapper show-shadow">
                 <label>Show shadow?</label>
-                <input autocomplete="off" type="checkbox" name="IsShowShadow" />
+                <input autocomplete="off" type="checkbox" name="IsShowShadow" @if (Model.IsShowShadow) { <text> checked</text>} />
             </div>
             <div class="group-wrapper">
                 <label>Hero Image</label>
