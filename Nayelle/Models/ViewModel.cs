@@ -87,6 +87,7 @@ namespace Nayelle.Models
         public string City { get; set; }
         public string PostalCode { get; set; }
         public string Copyright { get; set; }
+        public bool IsShowShadow { get; set; }
 
         public SilkSerumVM() { }
         public SilkSerumVM(SilkSerumPage model)
@@ -144,7 +145,7 @@ namespace Nayelle.Models
             City = model.City;
             PostalCode = model.PostalCode;
             Copyright = model.Copyright;
-
+            IsShowShadow = model.IsShowShadow;
         }
     }
 }

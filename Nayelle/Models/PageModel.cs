@@ -25,6 +25,7 @@ namespace Nayelle.Models
         public string City { get; set; } = string.Empty;
         public string PostalCode { get; set; } = string.Empty;
         public string Copyright { get; set; } = string.Empty;
+        public bool IsShowShadow { get; set; } = false;
     }
 
     public class SilkSerum

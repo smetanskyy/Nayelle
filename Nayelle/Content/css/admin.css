@@ -111,7 +111,7 @@ nav {
         transition: all linear 0.2s;
     }
 
-.remember-me {
+.remember-me, .show-shadow {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -119,12 +119,12 @@ nav {
     gap: 10px;
 }
 
-    .remember-me label {
+    .remember-me label, .show-shadow label {
         padding: 0;
         margin: 0;
     }
 
-    .remember-me input {
+    .remember-me input, .show-shadow input {
         width: 14px;
         height: 14px;
     }

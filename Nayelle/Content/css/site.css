@@ -73,12 +73,15 @@ nav {
 }
 
 .main-hero-shadow {
+    background: rgba(112, 184, 255, 0.3);
+}
+
+.main-hero-wrapper {
     width: 100%;
     height: 100%;
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    background: rgba(112, 184, 255, 0.3);
 }
 
 .main-hero-content {

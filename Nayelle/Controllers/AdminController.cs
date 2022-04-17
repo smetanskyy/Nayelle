@@ -80,6 +80,7 @@ namespace Nayelle.Controllers
         [ValidateInput(false)]
         public ActionResult Update(SilkSerumVM model)
         {
+            var isShowShadow = !string.IsNullOrWhiteSpace(Request.Form["IsShowShadow"]);
             var repo = new SilkSerumPageRepo();
             var silkserum = repo.SilkSerumPage;
             silkserum.Products[0].ID = model.ID_1;
@@ -126,6 +127,7 @@ namespace Nayelle.Controllers
             silkserum.City = model.City;
             silkserum.PostalCode = model.PostalCode;
             silkserum.Copyright = model.Copyright;
+            silkserum.IsShowShadow = isShowShadow;
 
             var filename = repo.SavePicture(model.PictureHero, "hero");
             if (filename != null) silkserum.HeroImage = filename;
