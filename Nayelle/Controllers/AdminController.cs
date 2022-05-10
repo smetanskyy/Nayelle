@@ -2,6 +2,8 @@
 using Nayelle.Helpers;
 using Nayelle.Models;
 using Nayelle.Services;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -27,6 +29,62 @@ namespace Nayelle.Controllers
                 }
             }
             return View();
+        }
+
+        [HttpGet]
+        public ActionResult TakeScreenshot(string url = "http://54.219.72.121:6001/", int width = 1400, int height = 1750)
+        {
+            if (Request.Cookies["_loginTkn"] != null)
+            {
+                var accountService = new AccountService();
+                var tkn = Request.Cookies["_loginTkn"].Value;
+                var isValid = !string.IsNullOrWhiteSpace(tkn) && GuidToken.IsValidTokenBasedOnTime(tkn) && accountService.IsGuidValid(GuidToken.GetGuidFromToken(tkn));
+                if (isValid)
+                {
+                    try
+                    {
+                        ChromeOptions options = new ChromeOptions();
+                        options.AddArgument("incognito");
+                        //options.AddAdditionalCapability("resolution", "1920x1080", true);
+                        options.AddArgument("headless"); // Comment if we want to see the window.
+                        options.AddArgument("--hide-scrollbars");
+
+                        var pathApp = HttpRuntime.AppDomainAppPath;
+                        var pathDrive = Path.Combine(pathApp, "ChromeDriver");
+
+                        using (var driver = new ChromeDriver(pathDrive, options))
+                        {
+                            string screenshotName = $"screenshot_{DateTime.Now.ToString("yyyy-MM-dd HH-mm")}.png";
+                            //driver.Manage().Window.Maximize();
+                            driver.Manage().Window.Size = new System.Drawing.Size(width, height);
+                            driver.Navigate().GoToUrl(url);
+                            var screenshot = (driver as ITakesScreenshot).GetScreenshot();
+                            var pathImage = Path.Combine(pathApp, "Files", "Thumbnails", screenshotName);
+                            screenshot.SaveAsFile(pathImage, ScreenshotImageFormat.Png);
+
+                            //string screenshot64Str = screenshot.AsBase64EncodedString;
+                            //screenshot64Str = screenshot.ToString(); //same as string screenshot = ss.AsBase64EncodedString;
+                            //byte[] screenshotAsByteArray = screenshot.AsByteArray;
+
+                            //Mobile
+                            //var mobileName = Path.Combine(pathApp, "Files", "Thumbnails", "mob-" + screenshotName);
+                            //driver.Manage().Window.Size = new System.Drawing.Size(360, 640);
+                            //driver.Navigate().GoToUrl(url);
+                            //screenshot = (driver as ITakesScreenshot).GetScreenshot();
+                            //screenshot.SaveAsFile(mobileName, ScreenshotImageFormat.Png);
+
+                            driver.Close();
+                            driver.Quit();
+                            return File(screenshot.AsByteArray, "application/octet-stream", screenshotName);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        return Content($"<p>{ex.Message}</p>");
+                    }
+                }
+            }
+            return RedirectToAction("Index");
         }
 
         [HttpPost]
