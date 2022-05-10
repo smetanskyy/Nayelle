@@ -166,7 +166,6 @@
     <Compile Include="Services\AccountService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ChromeDriver\chromedriver.exe" />
     <Content Include="Content\css\admin.css" />
     <Content Include="Content\css\site.css" />
     <Content Include="Content\img\bakuchiol-oil.jpg" />
