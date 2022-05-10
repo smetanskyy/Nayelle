@@ -38,8 +38,12 @@ namespace Nayelle.Controllers
         }
 
         [HttpPost]
-        public ActionResult TakeScreenshot(string url = "http://54.219.72.121:6001/", int width = 1400, int height = 1750)
+        public ActionResult TakeScreenshot(string url, int width = 1400, int height = 1750)
         {
+            if (string.IsNullOrWhiteSpace(url))
+            {
+                url = "http://54.219.72.121:6001/";
+            }
             try
             {
                 ChromeOptions options = new ChromeOptions();
