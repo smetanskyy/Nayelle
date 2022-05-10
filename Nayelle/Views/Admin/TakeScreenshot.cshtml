@@ -1,0 +1,24 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewBag.PageTitle = "Take Screenshot";
+}
+
+<main class="wrapper">
+    <form class="Admin" action="/admin/TakeScreenshot" method="post" novalidate>
+        <div class="page-grid-1">
+            <div class="group-wrapper">
+                <label>Url</label>
+                <input autocomplete="off" type="text" name="url" value="" placeholder="http://54.219.72.121:6001/" />
+            </div>
+            <div class="group-wrapper">
+                <label>Width (px)</label>
+                <input autocomplete="off" type="number" name="width" value="" placeholder="1400" />
+            </div>
+            <div class="group-wrapper">
+                <label>Height (px)</label>
+                <input autocomplete="off" type="number" name="height" value="" placeholder="1750" />
+            </div>
+            <button class="sibmit-btn" type="submit">Take Screenshot</button>
+        </div>
+    </form>
+</main>

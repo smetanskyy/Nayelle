@@ -32,6 +32,12 @@ namespace Nayelle.Controllers
         }
 
         [HttpGet]
+        public ActionResult TakeScreenshot()
+        {
+            return View();
+        }
+
+        [HttpPost]
         public ActionResult TakeScreenshot(string url = "http://54.219.72.121:6001/", int width = 1400, int height = 1750)
         {
             try
