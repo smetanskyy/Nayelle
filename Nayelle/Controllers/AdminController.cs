@@ -6,6 +6,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Web;
@@ -34,6 +35,7 @@ namespace Nayelle.Controllers
         [HttpGet]
         public ActionResult TakeScreenshot()
         {
+            ViewBag.BaseUrl = ConfigurationManager.AppSettings["BaseURL"];
             return View();
         }
 
@@ -42,7 +44,8 @@ namespace Nayelle.Controllers
         {
             if (string.IsNullOrWhiteSpace(url))
             {
-                url = "http://54.219.72.121:6001/";
+                string baseUrl = ConfigurationManager.AppSettings["BaseURL"];
+                url = baseUrl;
             }
             try
             {
